@@ -23,7 +23,7 @@ export class UserController {
       throw new HttpException(
         {
           statusCode: HttpStatus.BAD_REQUEST,
-          error: 'error creating user',
+          error,
         },
         HttpStatus.BAD_REQUEST,
         {
