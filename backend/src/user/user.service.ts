@@ -13,6 +13,7 @@ export class UserService {
       email: data.email,
       password: await bcrypt.hash(data.password, 10),
       role: data.role,
+      cpf: data.cpf,
       google_status: data?.google_status,
       google_id: data?.google_id,
     });

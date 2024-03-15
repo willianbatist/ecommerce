@@ -3,6 +3,7 @@ export type UserCreateDTO = {
   name: string;
   email: string;
   password: string;
+  cpf: string;
   role: string;
   google_status: boolean;
   google_id?: string;

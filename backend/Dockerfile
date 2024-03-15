@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 4000
 
 # Comando padrão para iniciar a aplicação
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "dev"]
