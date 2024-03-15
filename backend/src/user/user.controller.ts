@@ -18,6 +18,9 @@ export class UserController {
   async create(@Body() body: UserCreateDTO, @Res() res: Response) {
     try {
       const user = await this.userService.create(body);
+      if ('message' in user) {
+        return res.status(HttpStatus.BAD_REQUEST).json(user);
+      }
       return res.status(HttpStatus.CREATED).json(user);
     } catch (error) {
       throw new HttpException(

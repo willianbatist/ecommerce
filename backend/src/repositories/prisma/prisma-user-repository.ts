@@ -8,6 +8,16 @@ import { Injectable } from '@nestjs/common';
 export class PrismaUserRepository implements UserRepository {
   constructor(private prisma: PrismaService) {}
 
+  async findUserEmail(email: string): Promise<User> {
+    const user = await this.prisma.user.findFirst({ where: { email } });
+    return user;
+  }
+
+  async findUserCpf(cpf: string): Promise<User> {
+    const user = await this.prisma.user.findFirst({ where: { cpf } });
+    return user;
+  }
+
   async create(data: UserCreateDTO): Promise<User> {
     const user = await this.prisma.user.create({ data });
     return user;
