@@ -40,4 +40,9 @@ export class UserService {
       return this.isUserExist(data.email, data.cpf);
     }
   }
+
+  async findUserEmail(email: string) {
+    const user = await this.userRepository.findUserEmail(email);
+    return user;
+  }
 }
