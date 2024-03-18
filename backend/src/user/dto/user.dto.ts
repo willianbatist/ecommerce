@@ -8,3 +8,8 @@ export type UserCreateDTO = {
   google_status: boolean;
   google_id?: string;
 };
+
+export type UserValidation = {
+  email: string;
+  cpf: string;
+};

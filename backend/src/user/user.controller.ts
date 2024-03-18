@@ -35,4 +35,27 @@ export class UserController {
       );
     }
   }
+
+  @Post('validation')
+  async isExistsUser(@Body() body: UserCreateDTO, @Res() res: Response) {
+    try {
+      const { email, cpf } = body;
+      const isUser = await this.userService.isUserExist(email, cpf);
+      if (isUser === null) {
+        return res.status(HttpStatus.OK).json({ message: 'OK' });
+      }
+      return res.status(HttpStatus.OK).json(isUser);
+    } catch (error) {
+      throw new HttpException(
+        {
+          statusCode: HttpStatus.BAD_REQUEST,
+          error,
+        },
+        HttpStatus.BAD_REQUEST,
+        {
+          cause: error,
+        },
+      );
+    }
+  }
 }
