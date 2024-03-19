@@ -17,6 +17,24 @@ model User {
   created_at           DateTime               @default(now())
   google_status        Boolean
   google_id            String?
+  Address              Address[]
 
   @@map("users")
+}
+
+model Address {
+  id                   String                 @id @default(uuid())
+  user                 User                   @relation(fields: [user_id], references: [id])
+  user_id              String
+  cep                  String
+  address              String
+  number  						 String
+  complement           String?
+  neighborhood         String
+  city                 String
+  state                String
+  landmark             String?
+  cell_phone           String
+
+  @@map("adresses")
 }
