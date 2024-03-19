@@ -7,9 +7,11 @@ import {
   HttpException,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UserCreateDTO } from './dto/user.dto';
+import { UserCreateDTO, UserValidation } from './dto/user.dto';
 import { Response } from 'express';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
@@ -37,7 +39,7 @@ export class UserController {
   }
 
   @Post('validation')
-  async isExistsUser(@Body() body: UserCreateDTO, @Res() res: Response) {
+  async isExistsUser(@Body() body: UserValidation, @Res() res: Response) {
     try {
       const { email, cpf } = body;
       const isUser = await this.userService.isUserExist(email, cpf);
