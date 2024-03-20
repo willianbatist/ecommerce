@@ -26,7 +26,7 @@ export class UserService {
   async create(data: UserCreateDTO) {
     const isValid = await this.isUserExist(data.email, data.cpf);
     if (isValid === null) {
-      await this.userRepository.create({
+      const user = await this.userRepository.create({
         name: data.name,
         email: data.email,
         password: await bcrypt.hash(data.password, 10),
@@ -35,7 +35,7 @@ export class UserService {
         google_status: data?.google_status,
         google_id: data?.google_id,
       });
-      return { OK: 'OK' };
+      return { id: user.id };
     } else {
       return this.isUserExist(data.email, data.cpf);
     }
