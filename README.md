@@ -5,6 +5,7 @@ Este repositório contem o **Projeto Ecommerce** que reúne o aprendizado desenv
 # Projeto Ecommerce
 
 <details>
-<summary>:eyes: Show example</summary>
+  
+## Show example
 
 ## TESTANDO
