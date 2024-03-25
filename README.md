@@ -5,7 +5,4 @@ Este repositório contem o **Projeto Ecommerce** que reúne o aprendizado desenv
 # Projeto Ecommerce
 
 <details>
-  
-## Show example
-
-## TESTANDO
+<summary>Backend</summary>
